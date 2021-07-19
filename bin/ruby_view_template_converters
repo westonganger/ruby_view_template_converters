@@ -1,0 +1,30 @@
+#!/usr/env/ruby
+
+if !system("command -v html2haml") || !system("command -v haml2slim")
+  puts "Error: Missing dependencies!\n"
+  puts "To fix, please run the following dependency installation command:"
+  echo "gem install html2haml haml2slim --no-document"
+  exit
+fi
+
+puts "Would you like to replace the original files? (Y/n)"
+replace = STDIN.gets.downcase.strip
+
+matching_files = []
+
+case ARGV.first
+when "--erb-to-slim"
+  `bin/erb_to_slim.rb`
+when "--erb-to-haml"
+  puts "Error: Script is not yet implemented." ### TODO
+when "--slim-to-erb"
+  `bin/slim_to_erb.rb`
+when "--slim-to-haml"
+  puts "Error: Script is not yet implemented." ### TODO
+when "--haml-to-erb"
+  puts "Error: Script is not yet implemented." ### TODO
+when "--haml-to-slim"
+  puts "Error: Script is not yet implemented." ### TODO
+else
+  puts "Error: Script name incorrect or not provided."
+end
