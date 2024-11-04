@@ -9,7 +9,7 @@ if !system("command -v html2haml") || !system("command -v haml2slim")
   puts "To fix, please run the following dependency installation command:"
   puts "gem install htmlbeautifier --no-document"
   exit
-fi
+end
 
 puts "Would you like to replace the original files? (Y/n)"
 replace = STDIN.gets.downcase.strip
